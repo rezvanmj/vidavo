@@ -6,6 +6,7 @@ import 'core/constants/app_theme.dart';
 import 'core/service_locator.dart';
 import 'feature/authentication/presentation/manager/auth_bloc.dart';
 import 'feature/authentication/presentation/pages/login_page.dart';
+import 'feature/main/presentation/manager/main_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,13 +22,17 @@ class MyApp extends StatelessWidget {
         BlocProvider<AuthBloc>(
           create: (BuildContext context) => locator<AuthBloc>(),
         ),
-        //
-        // BlocProvider<MainBloc>(
-        //   create: (BuildContext context) => locator<MainBloc>(),
-        // ),
+
+        BlocProvider<MainBloc>(
+          create: (BuildContext context) => locator<MainBloc>(),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 800),
+        minTextAdapt: true,
+        splitScreenMode: false,
+        useInheritedMediaQuery: true,
+
         builder: (_, child) => MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: appLightThemeData,

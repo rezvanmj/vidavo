@@ -7,24 +7,34 @@ import 'package:vidavo/core/constants/app_values.dart';
 import '../widgets/login_form.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Theme.of(context).colorScheme.tertiary,
-      body: Column(
-        children: [
-          Expanded(flex: 2, child: _logo()),
-          Expanded(flex: 4, child: _loginContent(context)),
-        ],
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 200.h, child: _logo(context)),
+              _loginContent(context),
+            ],
+          ),
+        ),
       ),
     );
   }
 
   Widget _loginContent(BuildContext context) {
     return Container(
+      height: 600.h,
       width: AppValues.fullWidget(context),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -34,14 +44,18 @@ class LoginPage extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 18.0.w),
-        child: LoginForm(),
+        child: LoginForm(formKey: formKey),
       ),
     );
   }
 
-  Widget _logo() {
+  Widget _logo(BuildContext context) {
     return Center(
-      child: Image.asset(AppImages.logoPng, height: 58.h, width: 137.w),
+      child: Image.asset(
+        AppImages.logoPng,
+        height: 58.h, // optional: adjust image size
+        width: 137.w,
+      ),
     );
   }
 }

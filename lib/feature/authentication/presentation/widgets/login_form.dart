@@ -5,12 +5,14 @@ import 'package:vidavo/core/constants/app_values.dart';
 import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/app_space.dart';
 import '../../../../core/widgets/app_text_field.dart';
+import '../../../main/presentation/pages/main_page.dart';
 
 class LoginForm extends StatelessWidget {
-  LoginForm({super.key});
+  LoginForm({super.key, required this.formKey});
+  final GlobalKey<FormState> formKey;
+
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class LoginForm extends StatelessWidget {
             hint: AppStrings.passwordHint,
             validator: (value) {
               if (value != null) {
-                if (value.length < 8 ?? true) {
+                if (value.length < 4) {
                   return AppStrings.passHint;
                 }
               }
@@ -78,7 +80,14 @@ class LoginForm extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          if (formKey.currentState?.validate() ?? false) {}
+          if (formKey.currentState?.validate() ?? false) {
+            if (usernameController.text == 'vidavo' &&
+                passwordController.text == '1234') {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => MainPage()));
+            }
+          }
         },
         child: Text(AppStrings.signIn),
       ),
