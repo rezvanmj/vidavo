@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vidavo/feature/authentication/presentation/manager/auth_bloc.dart';
 
 import 'core/constants/app_theme.dart';
 import 'core/service_locator.dart';
-import 'feature/authentication/presentation/manager/auth_bloc.dart';
 import 'feature/authentication/presentation/pages/login_page.dart';
-import 'feature/main/presentation/manager/main_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,16 +16,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<AuthBloc>(
-          create: (BuildContext context) => locator<AuthBloc>(),
-        ),
-
-        BlocProvider<MainBloc>(
-          create: (BuildContext context) => locator<MainBloc>(),
-        ),
-      ],
+    return BlocProvider(
+      create: (BuildContext context) => AuthBloc(),
       child: ScreenUtilInit(
         designSize: const Size(360, 800),
         minTextAdapt: true,

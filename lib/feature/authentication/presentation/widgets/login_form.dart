@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vidavo/core/constants/app_values.dart';
+import 'package:vidavo/core/utils/app_utils.dart';
 
 import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/app_space.dart';
@@ -8,11 +9,15 @@ import '../../../../core/widgets/app_text_field.dart';
 import '../../../main/presentation/pages/main_page.dart';
 
 class LoginForm extends StatelessWidget {
-  LoginForm({super.key, required this.formKey});
+  LoginForm({
+    super.key,
+    required this.formKey,
+    required this.passController,
+    required this.usernameController,
+  });
   final GlobalKey<FormState> formKey;
-
-  final TextEditingController usernameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  TextEditingController passController;
+  TextEditingController usernameController;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +55,7 @@ class LoginForm extends StatelessWidget {
               }
               return null;
             },
-            controller: passwordController,
+            controller: passController,
           ),
 
           AppSpace(height: 42.h),
@@ -82,10 +87,16 @@ class LoginForm extends StatelessWidget {
         onPressed: () {
           if (formKey.currentState?.validate() ?? false) {
             if (usernameController.text == 'vidavo' &&
-                passwordController.text == '1234') {
-              Navigator.of(
-                context,
-              ).push(MaterialPageRoute(builder: (context) => MainPage()));
+                passController.text == '1234') {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => MainPage()),
+              );
+            } else {
+              AppUtils.showMessage(
+                message: 'Invalid username or Password',
+                context: context,
+                isShowingError: true,
+              );
             }
           }
         },

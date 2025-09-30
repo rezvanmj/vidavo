@@ -8,11 +8,11 @@ import '../widgets/login_form.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Theme.of(context).colorScheme.tertiary,
@@ -44,7 +44,11 @@ class LoginPage extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 18.0.w),
-        child: LoginForm(formKey: formKey),
+        child: LoginForm(
+          formKey: formKey,
+          usernameController: usernameController,
+          passController: passwordController,
+        ),
       ),
     );
   }

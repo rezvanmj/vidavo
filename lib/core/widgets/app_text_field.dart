@@ -18,6 +18,7 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autovalidateMode: AutovalidateMode.onUnfocus,
       validator: validator,
       controller: controller,
       style: _theme(context).textTheme.bodyMedium,

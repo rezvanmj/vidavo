@@ -4,6 +4,7 @@ class AppStrings {
   static String signIn = 'Sign in';
   static String username = 'Username';
   static String password = 'Password';
+  static String dynamicForm = 'Dynamic Form';
   static String passHint = 'Enter a stronger password';
   static String requiredField = 'Required field';
   static String passwordHint = 'Enter your username';
