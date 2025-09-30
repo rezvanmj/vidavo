@@ -91,6 +91,7 @@ final ThemeData appLightThemeData = ThemeData(
       borderRadius: BorderRadius.circular(15),
       borderSide: const BorderSide(color: AppColors.primaryColor, width: 1),
     ),
+
     hintStyle: AppStyles.bodyMedium.copyWith(color: AppColors.shadowColor),
     labelStyle: AppStyles.bodyMedium.copyWith(color: AppColors.shadowColor),
     floatingLabelStyle: AppStyles.bodyMedium.copyWith(

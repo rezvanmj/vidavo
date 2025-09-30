@@ -4,5 +4,8 @@ class AppStrings {
   static String signIn = 'Sign in';
   static String username = 'Username';
   static String password = 'Password';
+  static String passwordHint = 'Enter your username';
+  static String usernameHint = 'Enter your password';
+  static String forgetPass = 'Forgot you password?';
   static String loginText = 'Login to your account';
 }

@@ -98,6 +98,7 @@ class AppStyles {
   );
 
   static TextStyle bodyMedium = TextStyle(
+    //
     fontFamily: AppValues.poppinsFont,
     color: AppColors.textColor,
     fontWeight: FontWeight.w500,
@@ -117,9 +118,10 @@ class AppStyles {
   );
 
   static TextStyle bodySmall = TextStyle(
+    //
     fontFamily: AppValues.poppinsFont,
     color: AppColors.textColor,
-    fontWeight: FontWeight.w300,
+    fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
     // letterSpacing: 0.4,
     fontSize: 12.0.sp,
