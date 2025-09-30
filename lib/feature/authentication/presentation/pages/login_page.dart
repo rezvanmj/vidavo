@@ -3,9 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vidavo/core/constants/app_dimensions.dart';
 import 'package:vidavo/core/constants/app_images.dart';
 import 'package:vidavo/core/constants/app_values.dart';
-import 'package:vidavo/core/widgets/app_margin.dart';
 
-import '../../../../core/constants/app_strings.dart';
+import '../widgets/login_form.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -34,28 +33,7 @@ class LoginPage extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 18.0.w),
-        child: Column(
-          children: [
-            AppSpace(height: 69.h),
-            Text(
-              AppStrings.welcome,
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            AppSpace(height: 14.h),
-            Text(
-              AppStrings.loginText,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: Theme.of(context).colorScheme.outline,
-              ),
-            ),
-            AppSpace(height: 44.h),
-            TextFormField(),
-            AppSpace(height: 30.h),
-            TextFormField(),
-            AppSpace(height: 42.h),
-            ElevatedButton(onPressed: () {}, child: Text(AppStrings.signIn)),
-          ],
-        ),
+        child: LoginForm(),
       ),
     );
   }

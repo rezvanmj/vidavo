@@ -100,10 +100,10 @@ class AppStyles {
   static TextStyle bodyMedium = TextStyle(
     fontFamily: AppValues.poppinsFont,
     color: AppColors.textColor,
-    fontWeight: FontWeight.w300,
+    fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
     // letterSpacing: 0.5,
-    fontSize: 13.0.sp,
+    fontSize: 14.0.sp,
   );
 
   static TextStyle labelLarge = TextStyle(
