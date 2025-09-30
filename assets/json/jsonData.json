@@ -1,0 +1,29 @@
+{
+  "name": {
+    "type": "text"
+  },
+  "lastname": {
+    "type": "text"
+  },
+  "date_of_birth": {
+    "type": "date"
+  },
+  "male_female": {
+    "type": "radio",
+    "options": [
+      "male",
+      "female"
+    ]
+  },
+  "graduated": {
+    "type": "checkbox"
+  },
+  "country": {
+    "type": "dropdown" ,
+    "options": [
+      "Italy",
+      "netherlands",
+      "germany"
+    ]
+  }
+}

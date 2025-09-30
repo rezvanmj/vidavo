@@ -7,15 +7,18 @@ class AppTextField extends StatelessWidget {
     required this.hint,
     required this.label,
     required this.controller,
+    this.validator,
   });
 
   final String hint;
   final String label;
   final TextEditingController controller;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       controller: controller,
       style: _theme(context).textTheme.bodyMedium,
       decoration: InputDecoration(

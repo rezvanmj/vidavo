@@ -4,6 +4,8 @@ class AppStrings {
   static String signIn = 'Sign in';
   static String username = 'Username';
   static String password = 'Password';
+  static String passHint = 'Enter a stronger password';
+  static String requiredField = 'Required field';
   static String passwordHint = 'Enter your username';
   static String usernameHint = 'Enter your password';
   static String forgetPass = 'Forgot you password?';
