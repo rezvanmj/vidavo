@@ -6,15 +6,7 @@ A Flutter test project
 
 A Flutter test project that demonstrates a dynamic form system driven by a JSON configuration file(question1) and
 
-login page that you can enter app using 
-
-#### username:vidavo 
-
-and 
-
-#### password :1234 
-
-(Question2),
+login page that you can enter app using _username:vidavo_ and _password :1234_ (Question2),
 
  add and show message page (Question3)
 The project leverages BLoC architecture for state management and Clean architecture includes a variety of UI enhancements using popular Flutter flutter_screenutil package.
