@@ -15,8 +15,9 @@ final ThemeData appLightThemeData = ThemeData(
   appBarTheme: AppBarTheme(
     backgroundColor: AppColors.tertiaryColor,
     surfaceTintColor: Colors.transparent,
+    iconTheme: IconThemeData(color: AppColors.secondaryColor),
     foregroundColor: AppColors.textColor,
-    titleTextStyle: AppStyles.bodyMedium,
+    titleTextStyle: AppStyles.bodyLarge.copyWith(color: AppColors.primaryColor),
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: AppColors.cardColor,
       statusBarIconBrightness: Brightness.dark,

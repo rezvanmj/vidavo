@@ -14,7 +14,7 @@ class FieldTypeHelper {
       case 'dropdown':
         return FieldType.dropdown;
       default:
-        throw Exception('Unknown field type: $type');
+        throw Exception('Unknown field type: $type'); // error handling
     }
   }
 }

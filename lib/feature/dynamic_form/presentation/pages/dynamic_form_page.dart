@@ -23,55 +23,66 @@ class DynamicFormPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text(AppStrings.dynamicForm)),
-      body: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).unfocus();
-        },
-        child: BlocProvider(
-          create: (BuildContext context) =>
-              DynamicFormBloc(getDynamicFormUseCase: locator())
-                ..add(GetDynamicFormEvent()),
-          child: BlocBuilder<DynamicFormBloc, DynamicFormState>(
-            builder: (context, state) {
-              if (state.dynamicFormStatus is LoadingForm) {
-                return LoadingWidget();
-              } else if (state.dynamicFormStatus is FailedGetForm) {
-                return FailureWidget();
-              } else if (state.dynamicFormStatus is SuccessForm) {
-                final form = state.form;
-                final values = state.formValues ?? {};
-                if (form == null) return FailureWidget();
-
-                return ListView.builder(
-                  padding: EdgeInsets.all(AppDimensions.horizontalPadding),
-                  itemCount: form.length,
-                  itemBuilder: (context, index) {
-                    final field = form[index];
-
-                    switch (field.type) {
-                      case FieldType.text:
-                        return _textField(field, context, values);
-                      case FieldType.dropdown:
-                        return _dropdown(context, field, values);
-                      case FieldType.date:
-                        return _datePicker(field, context, values);
-
-                      case FieldType.checkbox:
-                        return _checkbox(field, context, values);
-
-                      case FieldType.radio:
-                        return _radio(field, context, values);
-                    }
-                  },
-                );
-              }
-              return const SizedBox.shrink();
-            },
-          ),
-        ),
+    return BlocProvider(
+      create: (BuildContext context) =>
+          DynamicFormBloc(getDynamicFormUseCase: locator())
+            ..add(GetDynamicFormEvent()),
+      child: Scaffold(
+        appBar: AppBar(centerTitle: true, title: Text(AppStrings.dynamicForm)),
+        body: _body(context),
       ),
+    );
+  }
+
+  Widget _body(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: BlocBuilder<DynamicFormBloc, DynamicFormState>(
+        builder: (context, state) {
+          if (state.dynamicFormStatus is LoadingForm) {
+            return LoadingWidget();
+          } else if (state.dynamicFormStatus is FailedGetForm) {
+            return FailureWidget();
+          } else if (state.dynamicFormStatus is SuccessForm) {
+            final form = state.form;
+            final values = state.formValues ?? {};
+            if (form == null) return FailureWidget();
+
+            return _buildDynamicList(form, values);
+          }
+          return const SizedBox.shrink();
+        },
+      ),
+    );
+  }
+
+  Widget _buildDynamicList(
+    List<DynamicFormEntity> form,
+    Map<String, dynamic> values,
+  ) {
+    return ListView.builder(
+      padding: EdgeInsets.all(AppDimensions.horizontalPadding),
+      itemCount: form.length,
+      itemBuilder: (context, index) {
+        final field = form[index];
+
+        switch (field.type) {
+          case FieldType.text:
+            return _textField(field, context, values);
+          case FieldType.dropdown:
+            return _dropdown(context, field, values);
+          case FieldType.date:
+            return _datePicker(field, context, values);
+
+          case FieldType.checkbox:
+            return _checkbox(field, context, values);
+
+          case FieldType.radio:
+            return _radio(field, context, values);
+        }
+      },
     );
   }
 

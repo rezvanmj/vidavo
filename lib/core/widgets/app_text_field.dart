@@ -9,6 +9,7 @@ class AppTextField extends StatelessWidget {
     required this.controller,
     this.validator,
     this.onChanged,
+    this.maxLines,
   });
 
   final String hint;
@@ -16,6 +17,7 @@ class AppTextField extends StatelessWidget {
   final Function(String value)? onChanged;
   final TextEditingController controller;
   final String? Function(String?)? validator;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class AppTextField extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUnfocus,
       validator: validator,
       controller: controller,
+      maxLines: maxLines,
       style: _theme(context).textTheme.bodyMedium,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 12.h),
