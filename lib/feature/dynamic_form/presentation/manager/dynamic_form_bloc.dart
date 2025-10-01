@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vidavo/core/exceptions/failure.dart';
@@ -23,7 +21,6 @@ class DynamicFormBloc extends Bloc<DynamicFormEvent, DynamicFormState> {
           emit(state.copyWith(newDynamicFormState: FailedGetForm()));
         },
         (data) {
-          log('success--------------- $data ');
           emit(
             state.copyWith(
               newDynamicFormState: SuccessForm(),
@@ -32,6 +29,16 @@ class DynamicFormBloc extends Bloc<DynamicFormEvent, DynamicFormState> {
           );
         },
       );
+    });
+
+    on<ChangeFormValues>((event, emit) {
+      if (state.formValues == {}) {
+        emit(state.copyWith(newFormValues: event.formValues));
+      } else {
+        final updatedValues = Map<String, dynamic>.from(state.formValues ?? {})
+          ..addAll(event.formValues ?? {});
+        emit(state.copyWith(newFormValues: updatedValues));
+      }
     });
   }
 }

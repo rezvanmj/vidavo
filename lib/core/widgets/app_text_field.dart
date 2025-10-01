@@ -8,16 +8,19 @@ class AppTextField extends StatelessWidget {
     required this.label,
     required this.controller,
     this.validator,
+    this.onChanged,
   });
 
   final String hint;
   final String label;
+  final Function(String value)? onChanged;
   final TextEditingController controller;
   final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       autovalidateMode: AutovalidateMode.onUnfocus,
       validator: validator,
       controller: controller,

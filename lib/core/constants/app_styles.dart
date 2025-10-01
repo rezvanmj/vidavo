@@ -13,7 +13,7 @@ class AppStyles {
     fontWeight: FontWeight.w300,
     fontStyle: FontStyle.normal,
     letterSpacing: 0.5,
-    fontSize: 60.0.sp,
+    fontSize: 40.0.sp,
   );
 
   static TextStyle displayMedium = TextStyle(
@@ -22,7 +22,7 @@ class AppStyles {
     fontWeight: FontWeight.w300,
     fontStyle: FontStyle.normal,
     letterSpacing: 0.5,
-    fontSize: 60.0.sp,
+    fontSize: 30.0.sp,
   );
 
   static TextStyle displaySmall = TextStyle(
@@ -31,7 +31,7 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
     letterSpacing: 0.0,
-    fontSize: 34.0.sp,
+    fontSize: 24.0.sp,
   );
 
   static TextStyle headlineMedium = TextStyle(
@@ -57,27 +57,27 @@ class AppStyles {
     color: AppColors.textColor,
     fontWeight: FontWeight.bold,
     fontStyle: FontStyle.normal,
-    // letterSpacing: 0.0,
-    fontSize: 40.0.sp,
+
+    fontSize: 30.0.sp,
   );
 
   static TextStyle titleLarge = TextStyle(
-    //dn
+    //title large sat from figma
     fontFamily: AppValues.poppinsFont,
     color: AppColors.textColor,
     fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
-    // letterSpacing: 0.15,
+
     fontSize: 20.0.sp,
   );
 
   static TextStyle titleMedium = TextStyle(
-    //dn
+    //title medium sat from figma
     fontFamily: AppValues.poppinsFont,
     color: AppColors.textColor,
     fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
-    // letterSpacing: 0.15,
+
     fontSize: 16.0.sp,
   );
 
@@ -86,7 +86,6 @@ class AppStyles {
     color: AppColors.textColor,
     fontWeight: FontWeight.w300,
     fontStyle: FontStyle.normal,
-    // letterSpacing: 0.5,
     fontSize: 14.0.sp,
   );
 
@@ -98,13 +97,13 @@ class AppStyles {
   );
 
   static TextStyle bodyMedium = TextStyle(
-    //
+    // body medium sat from figma
     fontFamily: AppValues.poppinsFont,
     color: AppColors.textColor,
     fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
-    // letterSpacing: 0.5,
-    fontSize: 14.0.sp,
+
+    fontSize: 13.0.sp,
   );
 
   static TextStyle labelLarge = TextStyle(
@@ -113,7 +112,6 @@ class AppStyles {
     fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
 
-    // letterSpacing: 0.5,
     fontSize: 18.0.sp,
   );
 
@@ -123,7 +121,6 @@ class AppStyles {
     color: AppColors.textColor,
     fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
-    // letterSpacing: 0.4,
     fontSize: 12.0.sp,
   );
 
@@ -132,7 +129,6 @@ class AppStyles {
     color: AppColors.textColor,
     fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
-    // letterSpacing: 0.5,
     fontSize: 10.0.sp,
   );
 
@@ -141,7 +137,6 @@ class AppStyles {
     color: AppColors.textColor,
     fontWeight: FontWeight.w900,
     fontStyle: FontStyle.normal,
-    // letterSpacing: 0.5,
     fontSize: 22.0.sp,
   );
 }

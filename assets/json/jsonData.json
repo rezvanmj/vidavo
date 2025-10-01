@@ -5,6 +5,14 @@
   "lastname": {
     "type": "text"
   },
+  "country": {
+    "type": "dropdown" ,
+    "options": [
+      "Italy",
+      "Netherlands",
+      "Germany"
+    ]
+  },
   "date_of_birth": {
     "type": "date"
   },
@@ -17,13 +25,6 @@
   },
   "graduated": {
     "type": "checkbox"
-  },
-  "country": {
-    "type": "dropdown" ,
-    "options": [
-      "Italy",
-      "netherlands",
-      "germany"
-    ]
   }
+
 }
