@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vidavo/core/constants/app_strings.dart';
 import 'package:vidavo/core/constants/app_values.dart';
 import 'package:vidavo/feature/dynamic_form/presentation/pages/dynamic_form_page.dart';
-import 'package:vidavo/feature/main/presentation/manager/main_bloc.dart';
 import 'package:vidavo/feature/message/presentation/pages/add_message_page.dart';
 
 import '../../../../core/constants/app_dimensions.dart';
@@ -14,13 +13,10 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) => MainBloc(),
-      child: Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.tertiary,
-        appBar: _appbar(),
-        body: _body(context),
-      ),
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.tertiary,
+      appBar: _appbar(),
+      body: _body(context),
     );
   }
 

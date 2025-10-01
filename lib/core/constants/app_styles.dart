@@ -92,6 +92,8 @@ class AppStyles {
   static TextStyle bodyLarge = TextStyle(
     fontFamily: AppValues.poppinsFont,
     fontWeight: FontWeight.w700,
+    color: AppColors.textColor,
+
     fontStyle: FontStyle.normal,
     fontSize: 16.0.sp,
   );

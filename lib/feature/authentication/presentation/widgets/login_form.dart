@@ -26,7 +26,10 @@ class LoginForm extends StatelessWidget {
       child: Column(
         children: [
           AppSpace(height: 69.h),
-          Text(AppStrings.welcome, style: _theme(context).textTheme.titleLarge),
+          Text(
+            AppStrings.welcome,
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           AppSpace(height: 14.h),
           _loginText(context),
           AppSpace(height: 44.h),
@@ -69,8 +72,8 @@ class LoginForm extends StatelessWidget {
   Widget _loginText(BuildContext context) {
     return Text(
       AppStrings.loginText,
-      style: _theme(context).textTheme.titleMedium?.copyWith(
-        color: _theme(context).colorScheme.outline,
+      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+        color: Theme.of(context).colorScheme.outline,
       ),
     );
   }
@@ -112,13 +115,11 @@ class LoginForm extends StatelessWidget {
         onPressed: () {},
         child: Text(
           AppStrings.forgetPass,
-          style: _theme(context).textTheme.bodySmall?.copyWith(
-            color: _theme(context).colorScheme.shadow,
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+            color: Theme.of(context).colorScheme.shadow,
           ),
         ),
       ),
     );
   }
-
-  ThemeData _theme(BuildContext context) => Theme.of(context);
 }
