@@ -44,6 +44,14 @@ The project leverages **BLoC architecture** for state management and **Clean Arc
 
 ---
 
+## Screens
+![4.png](assets/screens/1.png)
+![3.png](assets/screens/2.png)
+![2.png](assets/screens/3.png)
+![1.png](assets/screens/4.png)
+
+---
+
 ## Value Equality & Functional Programming
 
 - **equatable** → Simplifies value comparisons in BLoC states.
