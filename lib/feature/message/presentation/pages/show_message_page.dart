@@ -4,6 +4,7 @@ import 'package:vidavo/core/constants/app_strings.dart';
 import 'package:vidavo/core/widgets/app_space.dart';
 import 'package:vidavo/feature/message/presentation/manager/message_bloc.dart';
 import 'package:vidavo/feature/message/presentation/manager/message_state.dart';
+import 'package:vidavo/feature/message/presentation/manager/status/message_status.dart';
 
 import '../../../../core/constants/app_dimensions.dart';
 
@@ -20,8 +21,13 @@ class ShowMessagePage extends StatelessWidget {
         ),
         child: BlocBuilder<MessageBloc, MessageState>(
           builder: (context, state) {
-            if (state.title != null && state.message != null) {
-              return _body(state, context);
+            if (state.messageStatus is SaveMessageStatus) {
+              SaveMessageStatus status =
+                  state.messageStatus as SaveMessageStatus;
+
+              if (status.title != null && status.message != null) {
+                return _body(status, context);
+              }
             }
 
             return const Center(child: Text("No message saved yet"));
@@ -31,7 +37,7 @@ class ShowMessagePage extends StatelessWidget {
     );
   }
 
-  Widget _body(MessageState state, BuildContext context) {
+  Widget _body(SaveMessageStatus state, BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,

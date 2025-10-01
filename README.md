@@ -4,51 +4,56 @@ A Flutter test project
 
 ## Getting Started
 
-A Flutter test project that demonstrates a dynamic form system driven by a JSON configuration file(question1) and
+This project demonstrates:
+- A **dynamic form system** driven by a JSON configuration file (Question 1).
+- A **login page** with credentials:
+    - _username: vidavo_
+    - _password: 1234_ (Question 2).
+- An **add and show message page** (Question 3).
 
-login page that you can enter app using _username:vidavo_ and _password :1234_ (Question2),
+The project leverages **BLoC architecture** for state management and **Clean Architecture**, including responsive UI enhancements using the `flutter_screenutil` package.
 
- add and show message page (Question3)
-The project leverages BLoC architecture for state management and Clean architecture includes a variety of UI enhancements using popular Flutter flutter_screenutil package.
+---
 
+## Features and Packages
 
-**Features and Packages** :
+### Dynamic Form Rendering
+- Form fields are generated dynamically from a JSON file stored in the assets folder.
+- Supports multiple field types: **text, dropdown, date picker, checkbox, radio buttons, and more**.
 
-Dynamic Form Rendering:
-Form fields are generated dynamically based on a JSON file stored in the assets folder. Supports various field types such as text, dropdown, date picker, checkbox, radio buttons, and more.
+### State Management
+- Managed with `flutter_bloc`, enabling reactive and predictable state updates across the form.
 
-State Management:
-Managed with flutter_bloc, enabling reactive and predictable state updates across the form.
+### Internationalization
+- Date, time, and number formatting with `intl`.
 
+### Dependency Injection
+- Service management via `get_it`.
 
-Internationalization Support:
-Date, time, and number formatting using intl.
+### Responsive UI
+- Fully responsive layouts with `flutter_screenutil`.
 
-Dependency Injection:
-Service management via get_it.
+### Vector Graphics
+- SVG asset handling via `flutter_svg`.
 
-Responsive UI:
-Fully responsive layouts powered by flutter_screenutil.
+### Loading Animations
+- Beautiful animated loaders using `loading_animation_widget`.
 
-Vector Graphics Support:
-Handles SVG assets using flutter_svg.
+### Enhanced Dropdowns
+- Advanced searchable dropdowns with `dropdown_search`.
 
-Loading Animations:
-Beautiful animated loading indicators using loading_animation_widget.
+---
 
-Enhanced Dropdowns:
-Advanced searchable dropdowns via dropdown_search.
+## Value Equality & Functional Programming
 
+- **equatable** → Simplifies value comparisons in BLoC states.
+- **dartz** → Provides functional programming constructs like `Either` and `Option`.
 
-**Value Equality and Functional Programming**:
+---
 
-equatable: Simplifies value comparisons in BLoC states.
+## Project Structure
 
-dartz: Enables functional programming constructs like Either and Option.
-
-
-
-**Project structure**
+```
 lib/
 ├── main.dart                  # Entry point
 ├── core/                      # Constants, utilities, and shared widgets
@@ -61,21 +66,27 @@ lib/
 │           └── pages/         # UI screens
 assets/
 ├── forms/
-│   └── form_data.json          # JSON file defining the dynamic form
+│   └── form_data.json         # JSON file defining the dynamic form
+```
 
+---
 
-
-**Installation**
+## Installation
 
 Clone the repository:
+```bash
 git clone https://github.com/rezvanmj/vidavo.git
 cd vidavo
-
-
+```
+x
 Install dependencies:
+```bash
 flutter pub get
-
+```
 
 Run the project:
+```bash
 flutter run
+```
 
+---

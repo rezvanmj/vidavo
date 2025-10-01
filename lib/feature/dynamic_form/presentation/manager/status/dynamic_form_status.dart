@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import '../../../domain/entiries/dynamic_form_entity.dart';
+
 abstract class DynamicFormStatus extends Equatable {}
 
 class InitForm extends DynamicFormStatus {
@@ -17,7 +19,15 @@ class FailedGetForm extends DynamicFormStatus {
   List<Object?> get props => [];
 }
 
-class SuccessForm extends DynamicFormStatus {
+class SuccessFormStatus extends DynamicFormStatus {
+  // dynamic form
+  final List<DynamicFormEntity>? form;
+
+  //saved form values
+  final Map<String, dynamic>? formValues;
+
+  SuccessFormStatus({this.form, this.formValues});
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [form, formValues];
 }

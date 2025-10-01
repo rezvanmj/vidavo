@@ -45,9 +45,11 @@ class DynamicFormPage extends StatelessWidget {
             return LoadingWidget();
           } else if (state.dynamicFormStatus is FailedGetForm) {
             return FailureWidget();
-          } else if (state.dynamicFormStatus is SuccessForm) {
-            final form = state.form;
-            final values = state.formValues ?? {};
+          } else if (state.dynamicFormStatus is SuccessFormStatus) {
+            SuccessFormStatus successForm =
+                state.dynamicFormStatus as SuccessFormStatus;
+            final form = successForm.form;
+            final values = successForm.formValues ?? {};
             if (form == null) return FailureWidget();
 
             return _buildDynamicList(form, values);
