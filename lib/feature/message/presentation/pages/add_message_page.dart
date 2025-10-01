@@ -36,24 +36,24 @@ class AddMessagePage extends StatelessWidget {
     );
   }
 
-  Widget _button(BuildContext ncontext) {
+  Widget _button(BuildContext blocContext) {
     return SizedBox(
-      width: AppValues.fullWidget(ncontext),
+      width: AppValues.fullWidget(blocContext),
       child: ElevatedButton(
         onPressed: () {
           if (formKey.currentState?.validate() ?? false) {
-            ncontext.read<MessageBloc>().add(
+            blocContext.read<MessageBloc>().add(
               SaveMessage(
                 title: titleController.text,
                 message: messageController.text,
               ),
             );
 
-            Navigator.of(ncontext).push(
+            Navigator.of(blocContext).push(
               //navigating without disposing bloc
               MaterialPageRoute(
                 builder: (context) => BlocProvider.value(
-                  value: BlocProvider.of<MessageBloc>(ncontext),
+                  value: BlocProvider.of<MessageBloc>(blocContext),
                   child: ShowMessagePage(),
                 ),
               ),
