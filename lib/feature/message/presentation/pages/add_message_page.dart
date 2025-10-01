@@ -16,7 +16,7 @@ class AddMessagePage extends StatelessWidget {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<MessageBloc>(
       create: (BuildContext context) => MessageBloc(),
       child: Scaffold(
         appBar: AppBar(title: Text(AppStrings.addMessage)),
@@ -39,22 +39,23 @@ class AddMessagePage extends StatelessWidget {
     );
   }
 
-  Widget _button(BuildContext blocContext) {
+  Widget _button(BuildContext context) {
     return SizedBox(
-      width: AppValues.fullWidget(blocContext),
+      width: AppValues.fullWidget(context),
       child: ElevatedButton(
         onPressed: () {
           if (formKey.currentState?.validate() ?? false) {
-            blocContext.read()<MessageBloc>().add(
+            context.read()<MessageBloc>().add(
               SaveMessage(
                 title: titleController.text,
                 message: messageController.text,
               ),
             );
-            Navigator.of(blocContext).push(
+
+            Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => BlocProvider.value(
-                  value: BlocProvider.of<MessageBloc>(blocContext),
+                  value: BlocProvider.of<MessageBloc>(context),
                   child: ShowMessagePage(),
                 ),
               ),
