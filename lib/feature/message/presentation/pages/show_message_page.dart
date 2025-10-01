@@ -15,11 +15,13 @@ class ShowMessagePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(AppStrings.showMessage)),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.horizontalPadding,
+        ),
         child: BlocBuilder<MessageBloc, MessageState>(
           builder: (context, state) {
             if (state.title != null && state.message != null) {
-              return _body(state);
+              return _body(state, context);
             }
 
             return const Center(child: Text("No message saved yet"));
@@ -29,7 +31,7 @@ class ShowMessagePage extends StatelessWidget {
     );
   }
 
-  Widget _body(MessageState state) {
+  Widget _body(MessageState state, BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,

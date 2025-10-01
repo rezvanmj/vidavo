@@ -1,7 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:vidavo/feature/dynamic_form/data/repositories/dynamic_form_repository_imp.dart';
 import 'package:vidavo/feature/dynamic_form/domain/use_cases/get_dynamic_form_usecase.dart';
-import 'package:vidavo/feature/message/presentation/manager/message_bloc.dart';
 
 import '../feature/dynamic_form/domain/repositories/dynamic_form_repository.dart';
 
@@ -15,7 +14,4 @@ Future<void> serviceLocator() async {
   locator.registerSingleton<GetDynamicFormUsecase>(
     GetDynamicFormUsecase(repository: locator()),
   );
-
-  //Bloc
-  locator.registerSingleton<MessageBloc>(MessageBloc());
 }
