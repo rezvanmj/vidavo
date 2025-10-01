@@ -45,10 +45,10 @@ The project leverages **BLoC architecture** for state management and **Clean Arc
 ---
 
 ## Screens
-![4.png](assets/screens/1.png)
-![3.png](assets/screens/2.png)
-![2.png](assets/screens/3.png)
-![1.png](assets/screens/4.png)
+<img src="assets/screens/1.png" alt="Screen 1" width="250"/>
+<img src="assets/screens/2.png" alt="Screen 2" width="250"/>
+<img src="assets/screens/3.png" alt="Screen 3" width="250"/>
+<img src="assets/screens/4.png" alt="Screen 4" width="250"/>
 
 ---
 
