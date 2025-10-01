@@ -12,10 +12,11 @@ final ThemeData appLightThemeData = ThemeData(
   hoverColor: Colors.transparent,
   fontFamily: AppValues.poppinsFont,
 
-  appBarTheme: const AppBarTheme(
-    backgroundColor: AppColors.backgroundColor,
+  appBarTheme: AppBarTheme(
+    backgroundColor: AppColors.tertiaryColor,
     surfaceTintColor: Colors.transparent,
     foregroundColor: AppColors.textColor,
+    titleTextStyle: AppStyles.bodyMedium,
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: AppColors.cardColor,
       statusBarIconBrightness: Brightness.dark,
@@ -59,7 +60,6 @@ final ThemeData appLightThemeData = ThemeData(
     style: ButtonStyle(
       overlayColor: WidgetStateProperty.all(Colors.transparent),
 
-      // 🔥 No overlay on press
       foregroundColor: WidgetStateProperty.resolveWith<Color>((
         Set<WidgetState> states,
       ) {

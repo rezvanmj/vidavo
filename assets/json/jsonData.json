@@ -10,12 +10,16 @@
     "options": [
       "Italy",
       "Netherlands",
-      "Germany"
+      "Germany",
+      "Sweden" ,
+      "India",
+      "Turkey"
     ]
   },
   "date_of_birth": {
     "type": "date"
   },
+
   "male_female": {
     "type": "radio",
     "options": [
