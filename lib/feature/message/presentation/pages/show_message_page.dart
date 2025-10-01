@@ -32,10 +32,14 @@ class ShowMessagePage extends StatelessWidget {
   Widget _body(MessageState state) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          state.title ?? '',
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        Center(
+          child: Text(
+            state.title ?? '',
+
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
         ),
         AppSpace(height: AppDimensions.verticalSpace),
         Text(state.message ?? '', style: const TextStyle(fontSize: 16)),

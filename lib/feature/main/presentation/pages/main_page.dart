@@ -7,6 +7,7 @@ import 'package:vidavo/feature/main/presentation/manager/main_bloc.dart';
 import 'package:vidavo/feature/message/presentation/pages/add_message_page.dart';
 
 import '../../../../core/constants/app_dimensions.dart';
+import '../../../message/presentation/manager/message_bloc.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -56,7 +57,13 @@ class MainPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => AddMessagePage()),
+                    // navigate with providing bloc
+                    MaterialPageRoute(
+                      builder: (context) => BlocProvider(
+                        create: (_) => MessageBloc(),
+                        child: AddMessagePage(),
+                      ),
+                    ),
                   );
                 },
                 child: Text('Question 3'),

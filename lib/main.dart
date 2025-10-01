@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => AuthBloc(),
       child: ScreenUtilInit(
-        designSize: const Size(360, 800),
+        designSize: const Size(360, 800), // main sized of design app screen
         minTextAdapt: true,
         splitScreenMode: false,
         useInheritedMediaQuery: true,

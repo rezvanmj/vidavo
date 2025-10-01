@@ -16,16 +16,13 @@ class AddMessagePage extends StatelessWidget {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<MessageBloc>(
-      create: (BuildContext context) => MessageBloc(),
-      child: Scaffold(
-        appBar: AppBar(title: Text(AppStrings.addMessage)),
-        body: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-          },
-          child: _body(context),
-        ),
+    return Scaffold(
+      appBar: AppBar(title: Text(AppStrings.addMessage)),
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: _body(context),
       ),
     );
   }
@@ -39,23 +36,24 @@ class AddMessagePage extends StatelessWidget {
     );
   }
 
-  Widget _button(BuildContext context) {
+  Widget _button(BuildContext ncontext) {
     return SizedBox(
-      width: AppValues.fullWidget(context),
+      width: AppValues.fullWidget(ncontext),
       child: ElevatedButton(
         onPressed: () {
           if (formKey.currentState?.validate() ?? false) {
-            context.read()<MessageBloc>().add(
+            ncontext.read<MessageBloc>().add(
               SaveMessage(
                 title: titleController.text,
                 message: messageController.text,
               ),
             );
 
-            Navigator.of(context).push(
+            Navigator.of(ncontext).push(
+              //navigating without disposing bloc
               MaterialPageRoute(
                 builder: (context) => BlocProvider.value(
-                  value: BlocProvider.of<MessageBloc>(context),
+                  value: BlocProvider.of<MessageBloc>(ncontext),
                   child: ShowMessagePage(),
                 ),
               ),
