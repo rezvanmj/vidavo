@@ -73,8 +73,8 @@ lib/
 │           ├── manager/       # Bloc and state management
 │           └── pages/         # UI screens
 assets/
-├── forms/
-│   └── form_data.json         # JSON file defining the dynamic form
+├── json/
+│   └── jsonData.json         # JSON file defining the dynamic form
 ```
 
 ---

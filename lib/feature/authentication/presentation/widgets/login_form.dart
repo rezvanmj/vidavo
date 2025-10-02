@@ -9,15 +9,15 @@ import '../../../../core/widgets/app_text_field.dart';
 import '../../../main/presentation/pages/main_page.dart';
 
 class LoginForm extends StatelessWidget {
-  LoginForm({
+  const LoginForm({
     super.key,
     required this.formKey,
     required this.passController,
     required this.usernameController,
   });
   final GlobalKey<FormState> formKey;
-  TextEditingController passController;
-  TextEditingController usernameController;
+  final TextEditingController passController;
+  final TextEditingController usernameController;
 
   @override
   Widget build(BuildContext context) {
